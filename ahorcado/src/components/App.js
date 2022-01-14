@@ -4,7 +4,7 @@ import "../styles/App.scss";
 function App() {
   const [numberOfErrors, setNumberOfErrors] = useState(0);
   const [lastLetter, setLastLetter] = useState("");
-  const [patata, setPatata] = useState("patata");
+  const [word, setWord] = useState("katakroker");
 
   const [arrayInclude, setArrayInclude] = useState([]);
 
@@ -20,8 +20,10 @@ function App() {
     const inputLetter = ev.currentTarget.value;
     setLastLetter(inputLetter);
     if (inputLetter != "") {
-      if (patata.includes(inputLetter)) {
-        arrayInclude.push(inputLetter);
+      if (word.includes(inputLetter)) {
+        //arrayInclude.push(inputLetter); //no se usa en react
+        setArrayInclude([...arrayInclude, inputLetter]); //"push" en react
+
 
         //console.log(arrayInclude);
         //console.log("la letra está");
