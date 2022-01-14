@@ -19,7 +19,8 @@ function App() {
   const handleKeyUp = (ev) => {
     const inputLetter = ev.currentTarget.value;
     setLastLetter(inputLetter);
-    if (inputLetter != "") {
+    if (inputLetter.match("^[a-z]?$")) {  //escribir las letras
+      setLastLetter(lastLetter);
       if (word.includes(inputLetter)) {
         //arrayInclude.push(inputLetter); //no se usa en react
         setArrayInclude([...arrayInclude, inputLetter]); //"push" en react
@@ -79,6 +80,7 @@ function App() {
               name='last-letter'
               id='last-letter'
               onChange={handleKeyUp}
+              value={lastLetter}
             />
           </form>
         </section>
